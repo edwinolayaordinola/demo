@@ -69,7 +69,6 @@
             <artifactId>gt-geometry</artifactId>
             <version>25-SNAPSHOT</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.geotools/gt-geojson -->
         <dependency>
             <groupId>org.geotools</groupId>
             <artifactId>gt-geojson</artifactId>
@@ -80,18 +79,8 @@
             <artifactId>geojson-jackson</artifactId>
             <version>1.14</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.geotools/gt-geometry -->
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-geometry</artifactId>
-            <version>22.2</version>
-        </dependency>
-
-
-
 
     </dependencies>
-
 
     <repositories>
         <repository>

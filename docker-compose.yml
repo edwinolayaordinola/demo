@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  java_app:
+    container_name: app
+    image : edwinolaya/pee-java-app:1.0.0
+    build : .
+    ports:
+      - 8081:8081
+    environment:
+      - DATABASE_URL = jdbc:postgresql://java_db:5435/giscomercial
+      - DATABASE_USERNAME = postgres
+      - DATABASE_PASSWORD = toor
+    depends_on:
+      - java_db
+  java_db:
+    container_name: '3.234.206.172'
+    image : postgres:13
+    ports:
+      - 5435:5435
+    environment:
+      POSTGRES_USER : postgres
+      POSTGRES_PASSWORD : toor
+      POSTGRES_DB: giscomercial

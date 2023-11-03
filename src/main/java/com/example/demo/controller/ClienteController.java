@@ -2,14 +2,14 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Cliente;
 import com.example.demo.service.IClienteService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.apache.coyote.Response;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/clientes")
 public class ClienteController {
 
     private IClienteService clienteService;
@@ -19,7 +19,14 @@ public class ClienteController {
     }
 
     @GetMapping
-    public List<Cliente> getAll(){
-        return clienteService.getAll();
+    public ResponseEntity<List<Cliente>> getAll(){
+        List<Cliente> clientes = clienteService.getAll();
+        return new ResponseEntity<List<Cliente>>(clientes, HttpStatus.OK);
+    }
+
+    @GetMapping("/clientes/{codigo}")
+    public ResponseEntity<Cliente> searchByCodigo(@PathVariable String codigo){
+        Cliente cl = clienteService.searchByCodigo(codigo);
+        return new ResponseEntity<Cliente>(cl, HttpStatus.OK);
     }
 }

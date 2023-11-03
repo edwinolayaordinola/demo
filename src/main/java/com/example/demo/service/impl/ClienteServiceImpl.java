@@ -20,4 +20,9 @@ public class ClienteServiceImpl implements IClienteService {
     public List<Cliente> getAll() {
         return clienteRepo.findAll().stream().limit(10).toList();
     }
+
+    @Override
+    public Cliente searchByCodigo(String codigo) {
+        return clienteRepo.searchByCodigo(codigo);
+    }
 }
