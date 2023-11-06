@@ -13,7 +13,7 @@ import java.util.List;
 @Repository
 public interface ClienteGisRepo extends JpaRepository<ClienteGis,Integer> {
 
-    @Query(value="select cod_clie as codigo,ST_AsGeoJSON(geom) as geometry from gis.sig_clientes",nativeQuery = true)
+    @Query(value="select sc.cod_clie as codigo,ST_AsGeoJSON(sc.geom) as geometry,sc.nombre,sc.nrodoc,sc.direcf, sc.cod_sector as sector,sc.cod_subsec as subsector, sc.tipo_negocio as tiponegocio from gis.sig_clientes sc",nativeQuery = true)
     List<Object[]> getAll();
 
     @Query(value="select cl.* from gis.sig_clientes cl where cl.cod_clie=?1", nativeQuery = true)

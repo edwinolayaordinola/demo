@@ -21,10 +21,16 @@ public class ClienteGis{
     @Column(name="cod_subsec",nullable = true, columnDefinition = "INTEGER DEFAULT 0")
     private Integer codsubsec;
 
+    @Column(name="cod_sec",nullable = true, columnDefinition = "INTEGER DEFAULT 0")
+    private Integer codsec;
+
+    @Column(name="tipo_negocio",nullable = true)
+    private String tipoNegocio;
+
     @Column(name="cod_manz",nullable = true, columnDefinition = "INTEGER DEFAULT 0")
     private Integer codmanz;
 
-    @Column(name="cod_clie",nullable = false)
+    @Column(name="cod_clie",nullable = true)
     private String codclie;
 
     @Column(name="sec_visita",nullable = true, columnDefinition = "INTEGER DEFAULT 0")
@@ -44,4 +50,13 @@ public class ClienteGis{
 
     @Column(name="fecha_registro",nullable = true,  columnDefinition = "TIMESTAMP DEFAULT now()")
     private LocalDateTime fechaRegistro;
+
+    @Column(name="nombre",nullable = true)
+    private String nombre;
+
+    @Column(name="nrodoc",nullable = true)
+    private String nrodoc;
+
+    @Column(name="direcf",nullable = true)
+    private String direcf;
 }

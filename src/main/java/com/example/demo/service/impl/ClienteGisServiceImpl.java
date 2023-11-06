@@ -55,7 +55,13 @@ public class ClienteGisServiceImpl implements IClienteGisService {
             cuerpoGeoJson = "{"
                     + "\"type\": \"Feature\","
                     + "\"geometry\": " + cgs.get(i)[1].toString() + ","
-                    + "\"properties\": {\"codigo\": " +  '"'+  cgs.get(i)[0].toString() + '"' +  "}"
+                    + "\"properties\": {\"codigo\": " +  "\"" +  cgs.get(i)[0].toString() + "\"" + ","
+                    + "\"nombre\":" + "\"" + cgs.get(i)[2].toString() + "\"" + ","
+                    + "\"nrodoc\":" + "\"" + cgs.get(i)[3].toString() + "\"" + ","
+                    + "\"direcf\":" + "\"" + cgs.get(i)[4].toString() + "\"" + ","
+                    + "\"sector\":" + "\"" + cgs.get(i)[5].toString() + "\"" + ","
+                    + "\"subsector\":" + "\"" + cgs.get(i)[6].toString() + "\"" + ","
+                    + "\"tiponegocio\":" + "\"" + cgs.get(i)[7].toString() + "\"" + "}"
                     + "},";
             geojson.append(cuerpoGeoJson);
         }
