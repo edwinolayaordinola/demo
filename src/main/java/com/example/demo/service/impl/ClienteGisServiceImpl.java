@@ -47,6 +47,34 @@ public class ClienteGisServiceImpl implements IClienteGisService {
         return false;
     }
 
+    @Override
+    public String searchBySector(Integer idSector) {
+        String cabecera = "{"
+                + "\"type\": \"FeatureCollection\","
+                + "\"features\": [";
+        String cuerpoGeoJson="";
+        String cola = "]}";
+        List<Object[]> objects = clienteGisRepo.searchBySec(idSector);
+        String geojson = getCuerpoJson(objects);
+        if(geojson.length()>0)
+            cuerpoGeoJson = geojson.substring(0,geojson.length()-1);
+        return cabecera + cuerpoGeoJson + cola;
+    }
+
+    @Override
+    public String searchByTypeBusiness(String idTipoNegocio) {
+        String cabecera = "{"
+                + "\"type\": \"FeatureCollection\","
+                + "\"features\": [";
+        String cuerpoGeoJson="";
+        String cola = "]}";
+        List<Object[]> objects = clienteGisRepo.searchByTypeBusiness(idTipoNegocio);
+        String geojson = getCuerpoJson(objects);
+        if(geojson.length()>0)
+            cuerpoGeoJson = geojson.substring(0,geojson.length()-1);
+        return cabecera + cuerpoGeoJson + cola;
+    }
+
     private String getCuerpoJson(List<Object[]> cgs){
 
         String cuerpoGeoJson = "";

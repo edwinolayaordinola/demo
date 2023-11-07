@@ -7,7 +7,6 @@ import com.example.demo.service.IClienteGisService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/clientesgis")
 public class ClienteGisController {
 
     private IClienteGisService clienteGisService;
@@ -17,15 +16,23 @@ public class ClienteGisController {
         this.clienteGisService = cgisService;
     }
 
-    @GetMapping
+    @GetMapping("/clientesgis")
     public String getAll(){
         return clienteGisService.getAll();
     }
 
+    @GetMapping("/clientesgis/sector/{idsector}")
+    public String getBySector(@PathVariable Integer idsector){
+        return clienteGisService.searchBySector(idsector);
+    }
+
+    @GetMapping("/clientesgis/tiponegocio/{tiponegocio}")
+    public String getByTypeBusiness(@PathVariable String tiponegocio){
+        return clienteGisService.searchByTypeBusiness(tiponegocio);
+    }
+
     @PostMapping("/agregar")
     public Integer agregar(@RequestBody ClienteGisRequest clientegis){
-        /*if(clienteGisService.searchByCodigo((clientegis.getCodigo())))
-            return ENCONTRADO;*/
         return clienteGisService.agregar(clientegis);
     }
 }

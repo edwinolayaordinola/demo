@@ -13,4 +13,8 @@ public interface IClienteGisService {
     Integer agregar(ClienteGisRequest request);
 
     boolean searchByCodigo(Integer codigo);
+
+    String searchBySector(Integer idSector);
+
+    String searchByTypeBusiness(String idTipoNegocio);
 }
